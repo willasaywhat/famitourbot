@@ -5,9 +5,9 @@ var mraa = require('mraa'); //require mraa
 
 // I2C magic
 var x = new mraa.I2c(1); // use the i2c bus allocated to the arduino breakout
-x.address(0x0F); // i2c address as configured on the board
+x.address(30); // i2c address as configured on the board
 
-// helper function to go from hex val to dec  
+// helper function to go from hex val to dec
 function char(x) { return parseInt(x, 16); }
 
 app.get('/', function(req, res){
