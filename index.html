@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TourBot Control</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <form action="">
+      <input class="btn input-block-level form-control" type="button" name="up" id="upbtn" value="Forward" /></br>
+      <input class="btn input-block-level form-control" type="button" name="down" id="downbtn" value="Backward" /></br>
+      <input class="btn input-block-level form-control" type="button" name="left" id="leftbtn" value="Turn Left" /></br>
+      <input class="btn input-block-level form-control" type="button" name="right" id="rightbtn" value="Turn Right" /></br>
+      <input class="btn input-block-level form-control" type="button" name="stop" id="stopbtn" value="Stop" /></br>
+    </form>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io();
+
+      $('#upbtn').click(function(){
+          socket.emit('maowbot control', "up");
+          return false;
+      });
+
+      $('#downbtn').click(function(){
+          socket.emit('maowbot control', "down");
+          return false;
+      });
+
+      $('#leftbtn').click(function(){
+          socket.emit('maowbot control', "left");
+          return false;
+      });
+
+      $('#rightbtn').click(function(){
+          socket.emit('maowbot control', "right");
+          return false;
+      });
+
+      $('#stopbtn').click(function(){
+          socket.emit('maowbot control', "stop");
+          return false;
+      });
+    </script>
+  </body>
+</html>
